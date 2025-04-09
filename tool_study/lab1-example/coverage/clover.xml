@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1744121280239" clover="3.2.0">
-  <project timestamp="1744121280239" name="All files">
-    <metrics statements="16" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6" elements="32" coveredelements="32" complexity="0" loc="16" ncloc="16" packages="1" files="1" classes="1"/>
+<coverage generated="1744167574246" clover="3.2.0">
+  <project timestamp="1744167574247" name="All files">
+    <metrics statements="17" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="6" elements="34" coveredelements="32" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
     <file name="main.js" path="/Users/linxu/Documents/Software_Testing/113-spring-software-testing/tool_study/lab1-example/main.js">
-      <metrics statements="16" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
+      <metrics statements="17" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="7" coveredmethods="6"/>
       <line num="6" count="2" type="stmt"/>
       <line num="10" count="3" type="cond" truecount="2" falsecount="0"/>
       <line num="11" count="1" type="stmt"/>
@@ -17,9 +17,10 @@
       <line num="32" count="2" type="stmt"/>
       <line num="34" count="2" type="stmt"/>
       <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="41" count="3" type="stmt"/>
-      <line num="55" count="1" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+      <line num="41" count="2" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="60" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

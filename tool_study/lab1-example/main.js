@@ -40,6 +40,11 @@ class Student {
         }
         return this.name;
     }
+
+    unusedMethod() {
+        console.log("This method is never used.");
+    }
+    
 }
 
 // const myClass = new MyClass();
