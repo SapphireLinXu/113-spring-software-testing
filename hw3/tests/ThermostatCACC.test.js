@@ -1,6 +1,9 @@
+// tests/ThermostatCACC.test.js
+
 const Thermostat = require('../Thermostat');
 const { ProgrammedSettings, Period, DayType } = require('../ProgrammedSettings');
 
+// 工廠函數建立 Thermostat 並設定溫度與時間
 function createThermostat(curTemp, timeSinceLastRun) {
   const t = new Thermostat();
   t.setCurrentTemp(curTemp);
@@ -12,24 +15,28 @@ function createThermostat(curTemp, timeSinceLastRun) {
   return t;
 }
 
-test("CACC1: A controls predicate (T1 vs T3)", () => {
+test("CACC A controls predicate (TC1 vs TC2)", () => {
   const settings = new ProgrammedSettings();
   settings.setSetting(Period.MORNING, DayType.WEEKDAY, 70);
 
-  const t1 = createThermostat(65, 10); // A=true, B=true → true
-  expect(t1.turnHeaterOn(settings).heaterOn).toBe(true);
+  // TC1: A=T, B=T → predicate = T
+  const tc1 = createThermostat(65, 10);
+  expect(tc1.turnHeaterOn(settings).heaterOn).toBe(true);
 
-  const t3 = createThermostat(69, 10); // A=false, B=true → false
-  expect(t3.turnHeaterOn(settings).heaterOn).toBe(false);
+  // TC2: A=F, B=T → predicate = F
+  const tc2 = createThermostat(69, 10);
+  expect(tc2.turnHeaterOn(settings).heaterOn).toBe(false);
 });
 
-test("CACC2: B controls predicate (T1 vs T2)", () => {
+test("CACC B controls predicate (TC3 vs TC4)", () => {
   const settings = new ProgrammedSettings();
   settings.setSetting(Period.MORNING, DayType.WEEKDAY, 70);
 
-  const t1 = createThermostat(65, 10); // A=true, B=true → true
-  expect(t1.turnHeaterOn(settings).heaterOn).toBe(true);
+  // TC3: A=T, B=T → predicate = T
+  const tc3 = createThermostat(65, 10);
+  expect(tc3.turnHeaterOn(settings).heaterOn).toBe(true);
 
-  const t2 = createThermostat(65, 2); // A=true, B=false → false
-  expect(t2.turnHeaterOn(settings).heaterOn).toBe(false);
+  // TC4: A=T, B=F → predicate = F
+  const tc4 = createThermostat(65, 2);
+  expect(tc4.turnHeaterOn(settings).heaterOn).toBe(false);
 });
